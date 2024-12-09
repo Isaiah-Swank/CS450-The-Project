@@ -4,7 +4,7 @@
 #include <stddef.h> // For size_t
 #include <stdio.h>
 
-void heap_sort(int* arr, size_t arr_len);
+void heapsort(int *arr, int n);
 void heapify(int *arr, int n, int i);
 
 #endif
