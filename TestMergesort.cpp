@@ -13,7 +13,7 @@ extern "C" {
 TEST(MergeSort, Basic) {
     int arr[MAX_SIZE];
     int target[MAX_SIZE];
-    size_t size = DeepState_SizeTInRange(0, MAX_SIZE);
+    size_t size = DeepState_SizeInRange(0, MAX_SIZE);
 
     for (size_t i = 0; i < size; i++) {
         arr[i] = DeepState_Int();
