@@ -4,6 +4,7 @@
 #include <stddef.h> // For size_t
 #include <stdio.h>
 
-void quicksort(int* arr, size_t arr_len);
+void quicksort(int *arr, int low, int high);
+int partition(int *arr, int low, int high);
 
 #endif
