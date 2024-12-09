@@ -29,7 +29,7 @@ TEST(Heapsort, Basic) {
     std::sort(sorted_arr, sorted_arr + size);
 
     // Apply the heapsort algorithm
-    heap_sort(arr, size);
+    heapsort(arr, size);
 
     // Log the sorted array
     LOG(TRACE) << "Sorted array:";
