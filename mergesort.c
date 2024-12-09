@@ -1,55 +1,41 @@
 #include "mergesort.h"
 
 void merge(int *arr, int start, int mid, int end) {
-    int n1 = mid - start + 1;
-    int n2 = end - mid;
-    int L[n1], R[n2];
+    int i = start, j = mid + 1, k = 0;
+    int temp[end - start + 1];
 
-    // Copy data to temporary arrays
-    for (int i = 0; i < n1; i++) {
-        L[i] = arr[start + i];
-    }
-    for (int j = 0; j < n2; j++) {
-        R[j] = arr[mid + 1 + j];
+    // Merge the two subarrays into temp
+    while (i <= mid && j <= end) {
+        temp[k++] = (arr[i] <= arr[j]) ? arr[i++] : arr[j++];
     }
 
-    // Merge temporary arrays back into arr
-    int i = 0, j = 0, k = start;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            arr[k] = L[i];
-            i++;
-        } else {
-            arr[k] = R[j];
-            j++;
-        }
-        k++;
+    // Copy any remaining elements from the left subarray
+    while (i <= mid) {
+        temp[k++] = arr[i++];
     }
 
-    // Copy remaining elements of L[]
-    while (i < n1) {
-        arr[k] = L[i];
-        i++;
-        k++;
+    // Copy any remaining elements from the right subarray
+    while (j <= end) {
+        temp[k++] = arr[j++];
     }
 
-    // Copy remaining elements of R[]
-    while (j < n2) {
-        arr[k] = R[j];
-        j++;
-        k++;
+    // Copy temp back into the original array
+    for (k = 0, i = start; i <= end; ++i, ++k) {
+        arr[i] = temp[k];
     }
 }
 
 void merge_sort(int *arr, int start, int end) {
-    if (start < end) {
-        int mid = start + (end - start) / 2; // Calculate midpoint
-
-        // Sort first and second halves
-        merge_sort(arr, start, mid);
-        merge_sort(arr, mid + 1, end);
-
-        // Merge the sorted halves
-        merge(arr, start, mid, end);
+    if (start >= end) {
+        return; // Base case: single element or invalid range
     }
+
+    int mid = start + (end - start) / 2;
+
+    // Recursive calls for each half
+    merge_sort(arr, start, mid);
+    merge_sort(arr, mid + 1, end);
+
+    // Merge sorted halves
+    merge(arr, start, mid, end);
 }

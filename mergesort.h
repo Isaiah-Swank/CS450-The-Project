@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void merge_sort(int* arr, size_t start, size_t end, int* target);
+void merge_sort(int *arr, int start, int end);
+void merge(int *arr, int start, int mid, int end);
 
 #endif
