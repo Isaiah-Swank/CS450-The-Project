@@ -1,6 +1,6 @@
 #include <deepstate/DeepState.hpp>
 extern "C" {
-    #include "linked_list.c"
+    #include "linked-list.c"
 }
 
 using namespace deepstate;
