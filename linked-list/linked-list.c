@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "linked-list.h"
 
 typedef struct Node {
     int data;

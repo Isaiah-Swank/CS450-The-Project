@@ -1,7 +1,5 @@
 #include <deepstate/DeepState.hpp>
-extern "C" {
-    #include "linked-list.c"
-}
+#include "linked-list.h"
 
 using namespace deepstate;
 
